@@ -1,0 +1,54 @@
+// personal :  mysql -u root -p
+
+
+
+
+1> Load the driver:
+        Class.forName("com.mysql.cj.jdbc.Driver")
+
+optional//DriverManager.registerDriver(new com.myql.jdbc.Driver());
+
+2> create a conncection;
+         Connection con = DriverManager.getConnection("jdbc:mysql://localhost: 3306/dbname","root","root");
+
+3> Create query , statement, PreparedStatement , CallableStatement
+
+eg.
+     String q="select * from students";
+     
+    Statement stmt =  con.createStatement();
+
+Result set = stmt.executeQuery(q);
+
+
+4> Process the data : 
+
+     while(set.next())
+{
+
+            int id=set.getInt("studentID");
+           
+         String name = set.getString("studentName");
+         
+       System.out.println(id);
+       System.out.println(name);
+       
+}
+
+5> Close the connection : 
+
+conn.close();
+
+
+
+//mysql
+
+show databases;
+use <databaseName>;
+show tables;
+desc <tableName>;
+
+
+
+
+
